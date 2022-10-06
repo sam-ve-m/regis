@@ -1,0 +1,2 @@
+class ErrorToStartInfrastructure(Exception):
+    pass

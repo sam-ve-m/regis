@@ -1,0 +1,2 @@
+class FailedToVerifyEnum(Exception):
+    pass
