@@ -1,5 +1,4 @@
 from hashlib import sha1
-from typing import Optional
 
 import orjson as json
 from etria_logger import Gladsheim
@@ -77,7 +76,7 @@ class SinacorTypesRepository(OracleInfrastructure, RedisInfrastructure):
                 error=error,
             )
             raise FailedToVerifyEnum()
-        
+
     @staticmethod
     def __encode_query(sql: str, values: dict):
         _sha1 = sha1()

@@ -9,16 +9,16 @@ class RiskEvaluator:
         2: RiskRatings.LOW_RISK,
         7: RiskRatings.MODERATE_RISK,
         19: RiskRatings.HIGH_RISK,
-        20: RiskRatings.CRITICAL_RISK
+        20: RiskRatings.CRITICAL_RISK,
     }
 
     def __init__(
-            self,
-            patrymony: float,
-            frontier_city: bool,
-            risky_profession: bool,
-            is_pep: bool,
-            is_pep_related: bool,
+        self,
+        patrymony: float,
+        frontier_city: bool,
+        risky_profession: bool,
+        is_pep: bool,
+        is_pep_related: bool,
     ):
         self.patrimony = patrymony
         self.is_frontier_city = frontier_city
@@ -85,4 +85,3 @@ class RiskEvaluator:
         if risk_rating == RiskRatings.CRITICAL_RISK:
             risk_approval = RiskApproval.REJECTED
         return risk_approval
-
