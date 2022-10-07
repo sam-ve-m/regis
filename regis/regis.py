@@ -1,6 +1,6 @@
 from regis.src.domain.risk_rating.model import RiskEvaluator
 from regis.src.domain.risk_rating.regis_response import RegisResponse
-from regis.src.repositories.user_enums.repository import SinacorTypesRepository
+from regis.src.repositories.user_enums.repository import UserEnumsRepository
 
 
 class Regis:
@@ -12,10 +12,10 @@ class Regis:
         is_pep: bool,
         is_pep_related: bool,
     ) -> RegisResponse:
-        is_the_city_in_frontier = await SinacorTypesRepository.is_the_city_in_frontier(
+        is_the_city_in_frontier = await UserEnumsRepository.is_the_city_in_frontier(
             address_city
         )
-        is_the_profession_risk = await SinacorTypesRepository.is_the_profession_risk(
+        is_the_profession_risk = await UserEnumsRepository.is_the_profession_risk(
             profession
         )
         risk_rating = RiskEvaluator(

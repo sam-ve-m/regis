@@ -13,7 +13,7 @@ redis = "^4.3.4"
 etria-logger = "^0.1.9"
 
 [tool.poetry.group.dev.dependencies]
-pytest_async = "^0.1.1"
+pytest_asyncio = "^0.19.0"
 
 [[tool.poetry.source]]
 name = "etria_logger"
