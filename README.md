@@ -28,12 +28,14 @@ print(risk_score)
 print(risk_rating)
 print(risk_approval)
 print(risk_validations)
+print(risk_validations.to_dict())
 ~~~
 
 ### Console
 ~~~python
->>> 1
->>> RiskRatings.LOW_RISK
->>> True
->>> RiskValidations(has_big_patrymony=False, lives_in_frontier_city=False, has_risky_profession=False, is_pep=False, is_pep_related=False)
+1
+RiskRatings.LOW_RISK
+True
+RiskValidations(has_big_patrymony=False, lives_in_frontier_city=False, has_risky_profession=False, is_pep=False, is_pep_related=False)
+{'has_big_patrymony': False, 'lives_in_frontier_city': False, 'has_risky_profession': False, 'is_pep': False, 'is_pep_related': False}
 ~~~
