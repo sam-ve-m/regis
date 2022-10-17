@@ -1,6 +1,5 @@
-from regis.src.domain.enums.risk_approval import RiskApproval
 from regis.src.domain.enums.risk_ratings import RiskRatings
-from regis.src.domain.risk_rating.regis_response import RegisResponse
+from regis.src.domain.risk_rating.regis_response import RegisResponse, RiskValidations
 
 
 class RiskEvaluator:
@@ -30,10 +29,18 @@ class RiskEvaluator:
         risk_score = self._calculate_risk_score()
         risk_rating = self._get_risk_rating(risk_score)
         risk_approval = self._get_risk_approval(risk_rating)
+        regis_validations = RiskValidations(
+            has_big_patrymony=self.patrimony > 500_000,
+            lives_in_frontier_city=self.is_frontier_city,
+            has_risky_profession=self.is_risky_profession,
+            is_pep=self.is_pep,
+            is_pep_related=self.is_pep_related,
+        )
         response = RegisResponse(
             risk_score=risk_score,
             risk_rating=risk_rating,
             risk_approval=risk_approval,
+            risk_validations=regis_validations,
         )
         return response
 
@@ -47,9 +54,9 @@ class RiskEvaluator:
         return risk_score
 
     def _evaluate_patrymony_risk(self) -> int:
-        patrimony_is_bigger_than500k = self.patrimony > 500_000
+        patrimony_is_bigger_than_500k = self.patrimony > 500_000
         values = {True: 2}
-        return values.get(patrimony_is_bigger_than500k, 0)
+        return values.get(patrimony_is_bigger_than_500k, 0)
 
     def _evaluate_city_risk(self) -> int:
         values = {True: 3}
@@ -80,8 +87,8 @@ class RiskEvaluator:
         return limit + 1
 
     @staticmethod
-    def _get_risk_approval(risk_rating: RiskRatings) -> RiskApproval:
-        risk_approval = RiskApproval.APPROVED
+    def _get_risk_approval(risk_rating: RiskRatings) -> bool:
+        risk_approval = True
         if risk_rating == RiskRatings.CRITICAL_RISK:
-            risk_approval = RiskApproval.REJECTED
+            risk_approval = False
         return risk_approval

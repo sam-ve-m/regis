@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 import pytest
 
-from regis import RiskRatings, RiskApproval
+from regis import RiskRatings
 from regis.src.domain.risk_rating.model import RiskEvaluator
 
 
@@ -87,8 +87,8 @@ def test__get_risk_rating(risk_score):
 def test__get_risk_approval(risk_rating):
     evaluator = RiskEvaluator(10, False, False, False, False)
     expected_result = {
-        RiskRatings.CRITICAL_RISK: RiskApproval.REJECTED,
-        RiskRatings.HIGH_RISK: RiskApproval.APPROVED,
+        RiskRatings.CRITICAL_RISK: False,
+        RiskRatings.HIGH_RISK: True,
     }
     result = evaluator._get_risk_approval(risk_rating)
     assert result == expected_result.get(risk_rating)

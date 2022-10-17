@@ -1,14 +1,20 @@
-from regis.src.domain.enums.risk_approval import RiskApproval
+from dataclasses import dataclass
+
 from regis.src.domain.enums.risk_ratings import RiskRatings
 
 
+@dataclass
+class RiskValidations:
+    has_big_patrymony: bool
+    lives_in_frontier_city: bool
+    has_risky_profession: bool
+    is_pep: bool
+    is_pep_related: bool
+
+
+@dataclass
 class RegisResponse:
-    def __init__(
-        self,
-        risk_score: int,
-        risk_rating: RiskRatings,
-        risk_approval: RiskApproval,
-    ):
-        self.risk_score = risk_score
-        self.risk_rating = risk_rating
-        self.risk_approval = risk_approval
+    risk_score: int
+    risk_rating: RiskRatings
+    risk_approval: bool
+    risk_validations: RiskValidations

@@ -1,2 +1,2 @@
-class FailedToVerifyEnum(Exception):
+class FailedToGetData(Exception):
     pass

@@ -15,13 +15,13 @@ class Regis:
         is_the_city_in_frontier = await UserEnumsRepository.is_the_city_in_frontier(
             address_city
         )
-        is_the_profession_risk = await UserEnumsRepository.is_the_profession_risk(
+        is_the_profession_risky = await UserEnumsRepository.is_the_profession_risky(
             profession
         )
         risk_rating = RiskEvaluator(
             patrymony=patrymony,
             frontier_city=is_the_city_in_frontier,
-            risky_profession=is_the_profession_risk,
+            risky_profession=is_the_profession_risky,
             is_pep=is_pep,
             is_pep_related=is_pep_related,
         )
