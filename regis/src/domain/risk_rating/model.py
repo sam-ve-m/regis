@@ -13,13 +13,13 @@ class RiskEvaluator:
 
     def __init__(
         self,
-        patrymony: float,
+        patrimony: float,
         frontier_city: bool,
         risky_profession: bool,
         is_pep: bool,
         is_pep_related: bool,
     ):
-        self.patrimony = patrymony
+        self.patrimony = patrimony
         self.is_frontier_city = frontier_city
         self.is_risky_profession = risky_profession
         self.is_pep = is_pep

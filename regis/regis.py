@@ -6,7 +6,7 @@ from regis.src.repositories.user_enums.repository import UserEnumsRepository
 class Regis:
     @staticmethod
     async def rate_client_risk(
-        patrymony: float,
+        patrimony: float,
         address_city: int,
         profession: int,
         is_pep: bool,
@@ -19,7 +19,7 @@ class Regis:
             profession
         )
         risk_rating = RiskEvaluator(
-            patrymony=patrymony,
+            patrimony=patrimony,
             frontier_city=is_the_city_in_frontier,
             risky_profession=is_the_profession_risky,
             is_pep=is_pep,

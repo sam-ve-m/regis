@@ -4,6 +4,7 @@ _Package to calculate the risk rating of customers._
 ## Usage
 
 ### Code example
+
 ~~~python3
 import asyncio
 
@@ -11,7 +12,7 @@ from regis import Regis, RegisResponse, RiskRatings, RiskValidations
 
 regis_response: RegisResponse = asyncio.run(
     Regis.rate_client_risk(
-        patrymony=10000,
+        patrimony=10000,
         address_city=1256,
         profession=101,
         is_pep=False,

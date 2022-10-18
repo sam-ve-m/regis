@@ -11,7 +11,7 @@ from regis.src.repositories.user_enums.repository import UserEnumsRepository
 @patch.object(UserEnumsRepository, "is_the_profession_risky", return_value=False)
 async def test_rate_client_risk(frontier_mock, profession_mock):
     result = await Regis.rate_client_risk(
-        patrymony=1,
+        patrimony=1,
         address_city=1,
         profession=1,
         is_pep=False,
