@@ -16,7 +16,7 @@ etria-logger = "^0.1.9"
 pytest_asyncio = "^0.19.0"
 
 [[tool.poetry.source]]
-name = "etria_logger"
+name = "nexus"
 url = "https://nexus.sigame.com.br/repository/pypi/simple/"
 
 [build-system]
