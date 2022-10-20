@@ -1,0 +1,2 @@
+class FailedToGetData(Exception):
+    pass
