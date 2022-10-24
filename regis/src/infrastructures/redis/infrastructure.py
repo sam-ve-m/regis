@@ -1,6 +1,6 @@
-import redis.asyncio as redis
+import aioredis as redis
 from etria_logger import Gladsheim
-from redis.asyncio import Redis
+from aioredis import Redis
 
 from regis.src.domain.exceptions.infrastructure import (
     ErrorToStartInfrastructure,
