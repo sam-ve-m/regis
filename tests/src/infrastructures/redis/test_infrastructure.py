@@ -15,7 +15,7 @@ from tests.src.infrastructures.redis.stub_client import StubAsyncRedis
 
 
 @pytest.mark.asyncio
-@mock.patch("redis.asyncio.from_url")
+@mock.patch("aioredis.from_url")
 @mock.patch.object(decouple.Config, "__call__", return_value="redis://teste")
 async def test__get_client(get_redis_url, new_redis_client):
     stub_redis_client = StubAsyncRedis()
@@ -26,7 +26,7 @@ async def test__get_client(get_redis_url, new_redis_client):
 
 
 @pytest.mark.asyncio
-@mock.patch("redis.asyncio.from_url")
+@mock.patch("aioredis.from_url")
 @mock.patch.object(decouple.Config, "__call__", return_value="redis://teste")
 async def test__get_client_rise_infrastructure_error(get_redis_url, new_redis_client):
     new_redis_client.side_effect = Exception("test")
@@ -36,7 +36,7 @@ async def test__get_client_rise_infrastructure_error(get_redis_url, new_redis_cl
 
 
 @pytest.mark.asyncio
-@mock.patch("redis.asyncio.from_url")
+@mock.patch("aioredis.from_url")
 @mock.patch.object(decouple.Config, "__call__", return_value="redis://teste")
 async def test__get_client_already_started(get_redis_url, new_redis_client):
     assert RedisInfrastructure.redis is None

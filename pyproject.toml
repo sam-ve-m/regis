@@ -1,16 +1,16 @@
 [tool.poetry]
 name = "regis"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["João Bonfim <joao.bonfim@lionx.com.br>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.8"
 cx-Oracle-async = "^0.3.3"
 python-decouple = "^3.6"
-redis = "^4.3.4"
 etria-logger = "^0.1.9"
+aioredis = "^2.0.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest_asyncio = "^0.19.0"
